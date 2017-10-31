@@ -54,7 +54,7 @@ var ConfigProfiles = map[string]func(*Config) error{
 		return nil
 	},
 	"lowpower": func(c *Config) error {
-		c.Discovery.Routing = "dhtclient"
+		c.Routing.Type = "dhtclient"
 		c.Reprovider.Interval = "0"
 		return nil
 	},
