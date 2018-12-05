@@ -6,8 +6,9 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/ipfs/go-ipfs/repo"
+	postgresdb "gx/whyrusleeping/QmetWSEyBYnVYmaAbphKGhRiW2xPYpVcWTaxzd2im4W8Tf/sql-datastore/postgres"
 
+	"github.com/ipfs/go-ipfs/repo"
 	"gx/ipfs/QmdCQgMgoMjur6D15ZB3z1LodiSP3L6EBHMyVx4ekqzRWA/go-ds-measure"
 	ds "gx/ipfs/Qmf4xQhNomPNhrtZc67qSnfJSjxjXs9LWvknJtSXwimPrM/go-datastore"
 	"gx/ipfs/Qmf4xQhNomPNhrtZc67qSnfJSjxjXs9LWvknJtSXwimPrM/go-datastore/mount"
@@ -60,6 +61,7 @@ func init() {
 		"mem":     MemDatastoreConfig,
 		"log":     LogDatastoreConfig,
 		"measure": MeasureDatastoreConfig,
+		"postgres": PostgresDatastoreConfig,
 	}
 }
 
@@ -244,4 +246,33 @@ func (c measureDatastoreConfig) Create(path string) (repo.Datastore, error) {
 		return nil, err
 	}
 	return measure.New(c.prefix, child), nil
+}
+
+// PostgresDatastoreConfig returns a postgres DatastoreConfig from a spec
+func PostgresDatastoreConfig(params map[string]interface{}) (DatastoreConfig, error) {
+	var c postgresDatastoreConfig
+	var ok bool
+	c.path, ok = params["path"].(string)
+	if !ok {
+		log.Fatal("no path")
+	}
+	return &c, nil
+}
+type postgresDatastoreConfig struct {
+	path string
+}
+func (c *postgresDatastoreConfig) DiskSpec() DiskSpec {
+	return map[string]interface{}{
+		"type": "postgresds",
+		"path": c.path,
+	}
+}
+func (postgresDatastoreConfig) Create(path string) (repo.Datastore, error) {
+	pg := postgresdb.Options{}
+	ds, err := pg.Create()
+	if err != nil {
+		fmt.Println("error loading pg: ", err)
+		return ds, err
+	}
+	return ds, nil
 }

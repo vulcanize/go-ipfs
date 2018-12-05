@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
+	config "gx/ipfs/QmPc5W6P8cQVGvDDQbxH9x1rq9gAYLcphAn56Bez8ygUby/go-ipfs-config"
 	pstore "gx/ipfs/QmQAGG1zxfePqj2t7bLxyN8AFccZ889DDR9Gn8kVLDrGZo/go-libp2p-peerstore"
-	config "gx/ipfs/QmXctaABKwgzmQgNM4bucMJf7zJnxxvhmPM1Pw95dxUfB5/go-ipfs-config"
 	testutil "gx/ipfs/QmZXjR5X1p4KrQ967cTsy4MymMzUM8mZECF3PV8UcN4o3g/go-testutil"
 )
 

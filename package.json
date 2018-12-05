@@ -518,9 +518,9 @@
     },
     {
       "author": "magik6k",
-      "hash": "QmXctaABKwgzmQgNM4bucMJf7zJnxxvhmPM1Pw95dxUfB5",
+      "hash": "QmPc5W6P8cQVGvDDQbxH9x1rq9gAYLcphAn56Bez8ygUby",
       "name": "go-ipfs-config",
-      "version": "0.2.20"
+      "version": "0.2.21"
     },
     {
       "author": "why",
@@ -598,12 +598,18 @@
       "hash": "QmcLYfmHLsaVRKGMZQovwEYhHAjWtRjg1Lij3pnzw5UkRD",
       "name": "go-libp2p-http",
       "version": "1.1.8"
+    },
+    {
+      "author": "whyrusleeping",
+      "hash": "QmXbMF2TN2K8zufRc6quJ4ui2n13fdcTXtTX1PXFA8Qgba",
+      "name": "sql-datastore",
+      "version": "2.0.2"
     }
   ],
   "gxVersion": "0.10.0",
   "language": "go",
   "license": "MIT",
   "name": "go-ipfs",
-  "version": "0.4.18"
+  "version": "0.4.23"
 }
 
