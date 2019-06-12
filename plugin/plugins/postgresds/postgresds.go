@@ -10,8 +10,8 @@ import (
 	"github.com/ipfs/go-ipfs/repo"
 	"github.com/ipfs/go-ipfs/repo/fsrepo"
 
-	postgresdb "gx/ipfs/QmZmPKg1RKY2Cy5czKEBJTfDYzenbGww2pFNQKxLSKrPRB/sql-datastore/postgres"
-	"gx/ipfs/QmdcULN1WCzgoQmcCaUAmEhwcxHYsDrbZ2LvRJKCL8dMrK/go-homedir"
+	postgresdb "github.com/whyrusleeping/sql-datastore/postgres"
+	"github.com/mitchellh/go-homedir"
 )
 
 // Plugins is exported list of plugins that will be loaded
