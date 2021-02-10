@@ -6,11 +6,11 @@ import (
 	"path/filepath"
 	"strings"
 
+	"github.com/ipfs/go-ds-sql/postgres"
 	"github.com/ipfs/go-ipfs/plugin"
 	"github.com/ipfs/go-ipfs/repo"
 	"github.com/ipfs/go-ipfs/repo/fsrepo"
 
-	postgresdb "github.com/whyrusleeping/sql-datastore/postgres"
 	"github.com/mitchellh/go-homedir"
 )
 
@@ -31,7 +31,7 @@ func (*postgresdsPlugin) Version() string {
 	return "0.1.0"
 }
 
-func (*postgresdsPlugin) Init() error {
+func (*postgresdsPlugin) Init(_ *plugin.Environment) error {
 	return nil
 }
 
@@ -110,7 +110,7 @@ func (c *datastoreConfig) DiskSpec() fsrepo.DiskSpec {
 }
 
 func (c *datastoreConfig) Create(path string) (repo.Datastore, error) {
-	pg := postgresdb.Options{
+	pg := postgres.Options{
 		Host:     c.host,
 		User:     c.user,
 		Database: c.dbname,
