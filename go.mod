@@ -112,4 +112,6 @@ require (
 	golang.org/x/sys v0.0.0-20210124154548-22da62e12c0c
 )
 
+replace github.com/ipfs/go-ipfs-config v0.12.0 => github.com/vulcanize/go-ipfs-config v0.12.0-pg-v0.1.0
+
 go 1.14
